@@ -6,7 +6,6 @@ on:
 
 jobs:
   bump-vsc-package:
-    if: github.actor_id != 210085057
     runs-on: ubuntu-latest
     steps:
       - name: Install node
@@ -15,18 +14,10 @@ jobs:
           node-version: 16
 
 
-      - name: Generate GitHub App token
-        id: app_token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-
       - name: Get latest code
         uses: actions/checkout@v4
         with:
           submodules: true
-          token: ${{ steps.app_token.outputs.token }}
 
 
       - name: Bump package version
