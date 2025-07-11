@@ -12,6 +12,7 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.ACTIONS_PAT_TOKEN }}
           submodules: true
 
 
