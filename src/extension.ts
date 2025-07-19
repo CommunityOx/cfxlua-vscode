@@ -21,7 +21,7 @@ export async function activate(context: ExtensionContext) {
   const storageUri = context.globalStorageUri;
   const sourceUri = Uri.joinPath(extension.extensionUri, 'plugin');
   const platform = os.platform();
-  storagePath = storageUri.toString();
+  storagePath = storageUri.fsPath;
 
   if (platform === 'win32') {
     storagePath = path.join(
